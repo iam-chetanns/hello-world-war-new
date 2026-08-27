@@ -1,4 +1,7 @@
 pipeline {
+	parameters {
+        string(name: 'cmd', defaultValue: 'package', description: 'Git branch to build')
+        choice(name: 'ch', choices: ['dev', 'staging', 'prod'], description: 'Deploy environment')
     agent any
       stages {
         stage('checkout') {
@@ -9,7 +12,7 @@ pipeline {
 		stage('build') {
             steps {
 				sh 'cd hello-world-war-new'
-                sh 'mvn clean package'
+                sh 'mvn clean package $cmd'
             }
         }
     }
