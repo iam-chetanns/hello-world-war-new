@@ -12,7 +12,7 @@ pipeline {
 		stage('build') {
             steps {
 				sh 'cd hello-world-war-new'
-                sh 'mvn clean $cmd'
+                sh 'mvn clean package $cmd'
             }
         }
     }
