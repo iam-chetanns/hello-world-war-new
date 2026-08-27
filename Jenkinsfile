@@ -20,6 +20,7 @@ pipeline {
 
         stage('Checkout') {
             steps {
+                sh 'rm -rf hello-world-war-new'
                 sh 'git clone https://github.com/iam-chetanns/hello-world-war-new.git'
             }
         }
